@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Zahlenraten</title>
+</head>
+<body>
+  <h1>Zahlenraten</h1>
+  <p>Ich habe eine Zahl zwischen 1 und 100 gewählt.</p>
+
+  <input type="number" id="tipp" placeholder="Dein Tipp">
+  <button onclick="pruefen()">Raten</button>
+
+  <p id="ausgabe"></p>
+
+  <script>
+    let zahl = Math.floor(Math.random() * 100) + 1;
+    let versuche = 0;
+
+    function pruefen() {
+      let tipp = Number(document.getElementById("tipp").value);
+      let ausgabe = document.getElementById("ausgabe");
+      versuche++;
+
+      if (tipp < zahl) {
+        ausgabe.textContent = "Zu klein!";
+      } else if (tipp > zahl) {
+        ausgabe.textContent = "Zu gross!";
+      } else {
+        ausgabe.textContent = "Richtig! Du hast " + versuche + " Versuche gebraucht.";
+      }
+    }
+  </script>
+</body>
+</html>
